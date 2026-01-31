@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Wish</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #a3c663;
+            margin: 0;
+            padding: 0;
+        }
+        #countdown {
+            font-size: 69px;
+            margin-top: 50px;
+        }
+        #heart {
+            font-size: 100px;
+            animation: pulse 1s infinite;
+            display: none;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        #clickButton {
+            display: none;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #ff69b4;
+            color: rgb(214, 14, 164);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #page2 {
+            display: none;
+            margin-top: 20px;
+        }
+        #quote {
+            font-size: 24px;
+            margin: 20px;
+        }
+        .photo-group {
+            display: none;
+            margin-top: 20px;
+        }
+        .photo-item {
+            margin: 10px;
+            display: inline-block;
+        }
+        .photo-item img {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+        }
+        .subtitle {
+            font-size: 16px;
+            margin-top: 5px;
+        }
+        #notebook {
+            display: none;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+            background-color: #fff;
+            border: 2px solid #ccc;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            line-height: 1.5;
+            position: relative;
+        }
+        #notebook::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: repeating-linear-gradient(transparent, transparent 24px, #ccc 24px, #ccc 25px);
+            pointer-events: none;
+        }
+        #notebook p {
+            margin: 0;
+            padding: 0;
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div id="countdown">5</div>
+    <div id="heart">❤️</div>
+    <button id="clickButton">Click</button>
+    
+    <div id="page2">
+        <img src="C:\Users\sumit\CrossDevice\Sumitro😈😈 (1)\storage\Pictures\WhatsApp\IMG-20260127-WA0004.jpg" alt="Birthday Photo" style="width: 300px; height: 200px; border-radius: 10px;">
+        <div id="quote">Hey, dear wishing you a great congrats as the day you born</div>
+        
+        <div class="photo-group">
+            <div class="photo-item">
+                <img src="C:\Users\sumit\CrossDevice\Sumitro😈😈 (1)\storage\DCIM\Camera\IMG_20251027_203238(1).jpg" alt="Memory 1">
+                <div class="subtitle">Our first adventure together</div>
+            </div>
+            <div class="photo-item">
+                <img src="C:\Users\sumit\CrossDevice\Sumitro😈😈 (1)\storage\DCIM\Camera\IMG_20251002_175456.jpg" alt="Memory 2">
+                <div class="subtitle">Laughing at your jokes</div>
+            </div>
+            <div class="photo-item">
+                <img src="C:\Users\sumit\CrossDevice\Sumitro😈😈 (1)\storage\Pictures\Bony\IMG-20250719-WA0032.jpg" alt="Memory 3">
+                <div class="subtitle">Celebrating your smile</div>
+            </div>
+            <div class="photo-item">
+                <img src="C:\Users\sumit\CrossDevice\Sumitro😈😈 (1)\storage\Pictures\Bony\IMG-20260112-WA0037.jpg" alt="Memory 4">
+                <div class="subtitle">Cherished moments forever</div>
+            </div>
+        </div>
+        
+        <div id="notebook">
+            <p>Dear [Bony]],</p>
+            <p>On this special day, I want to wish you all the happiness in the world. May your year ahead be filled with love, laughter, and unforgettable adventures. You are truly one of a kind, and I'm grateful to have you in my life. Happy Birthday!</p>
+            <p>With love,</p>
+            <p>[😁]</p>
+        </div>
+    </div>
+
+    <script>
+        let countdown = 5;
+        const countdownElement = document.getElementById('countdown');
+        const heartElement = document.getElementById('heart');
+        const clickButton = document.getElementById('clickButton');
+        const page2 = document.getElementById('page2');
+        const photoGroup = document.querySelector('.photo-group');
+        const notebook = document.getElementById('notebook');
+
+        const interval = setInterval(() => {
+            countdownElement.textContent = countdown;
+            countdown--;
+            if (countdown < 0) {
+                clearInterval(interval);
+                countdownElement.style.display = 'none';
+                heartElement.style.display = 'block';
+                setTimeout(() => {
+                    clickButton.style.display = 'block';
+                }, 2000); // Show heart for 2 seconds before button
+            }
+        }, 1000);
+
+        clickButton.addEventListener('click', () => {
+            page2.style.display = 'block';
+            clickButton.style.display = 'none';
+            setTimeout(() => {
+                photoGroup.style.display = 'block';
+                setTimeout(() => {
+                    notebook.style.display = 'block';
+                }, 3000); // Show photos for 3 seconds before notebook
+            }, 3000); // Show quote and photo for 3 seconds before photos
+        });
+    </script>
+</body>
+</html>
